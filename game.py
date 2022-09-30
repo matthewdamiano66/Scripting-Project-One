@@ -13,6 +13,7 @@ data = input(name.lower().strip() + " " + "Do you want to play a game ? (Yes/No?
 # Game starts
 if data.lower().strip() == "yes":
     visited.append(rooms[0])
+    print("To play used input words that are surrounded by brackets like so (answer)")
     print("Collect all 6 items to win \n")
     print(line)
     print("For weeks you've heard stories of missing people entering the haunted Arley home.\n"
@@ -78,8 +79,31 @@ if data.strip().lower() == "stairwell":
         data = input("Using your flashlight to find the door, you have to decide to (stay) and wait, or (continue) "
                      "exploring, what will you do ?")
         inventory.append(items[6])
-        if data == "continue":
-            print("you continue forward until you find a bedroom")
+        print(line)
+# ----------------------------------------------------------------------------------------------------------------------
+        if data.strip().lower() == "continue":
+            inventory.append(items[2])
+            print("you continue forward until you find a bedroom\n")
+            print("Entering the bedroom you use your flashlight to find clues\n")
+            print("You find a set of keys on an antique spider web covered dresser\n")
+            data = input("Shinning your light through the now open door, you believe you can see and exit do you ("
+                         "stay) where you are or (explore)")
+            if data.strip().lower() == "explore":
+                data = input("Making your way toward the exit you're suddenly stopped by the"+villain+" "+"Will you (attack) "
+                                                                                                   "or (run)")
+                if data.strip().lower() == "attack":
+                    print("You throw your net over the ghost and taking your camera unmask the ghost while snapping a "
+                          "photo")
+                    print("With all of the evidence you've found you make a break for the exit")
+                    print("you safely escape out the door and user your evidence to apprehend the"+villain)
+                    print("Game over,"+" "+name+" "+"you've won!")
+# ----------------------------------------------------------------------------------------------------------------------
+
+        if data.strip().lower() == "stay":
+            print(line)
+            print(
+                "You decided to stay, you wait too long and are found by the " + villain + " and are never seen again")
+            print("Game Over" + name + "Better luck nex time!")
 
 # ----------------------------------------------------------------------------------------------------------------------
 
