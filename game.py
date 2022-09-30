@@ -2,8 +2,6 @@
 rooms = ['entrance', 'hallway', 'bedroom', 'basement', 'stairwell', 'Kitchen', 'trap room', 'exit']
 # items =      0           1        2      3          4          5
 items = ['flashlight', 'mirror', 'keys', 'camera', 'cellphone', 'net']
-# I should use this method instead but who the fuck cares lmao
-# directions = ['north','south','east','west']
 visited = []
 inventory = []
 villain = 'ghost'
@@ -50,7 +48,7 @@ if data.strip().lower() == "basement":
         print("Entering the kitchen you use your flashlight to look around,you find a" + str(
             items[3]) + " " + "this may be helpful:")
         inventory.append(items[3])
-        print("You have found "+str(len(inventory))+" out of 6 items !")
+        print("You have found " + str(len(inventory)) + " out of 6 items !")
         data = input("Hearing noises you rush out of the kitchen, where will you head next?")
         visited.append(rooms[5])
 # ----------------------------------------------------------------------------------------------------------------------
@@ -58,8 +56,7 @@ if data.strip().lower() == "stairwell":
     visited.append(rooms[4])
     print("You climb the stairs, noticing the state of the hallway you find yourself in you descend quickly back to "
           "whence you came.\n")
-    print("Looking around quickly you find a set of keys along the stairs where could they lead ?\n")
-    inventory.append(items[2])
+
     print("You have found " + str(len(inventory)) + " out of 6 items !")
     print(line)
     data = input("Back where you started where will you head next ?\n to the kitchen? or downward to the basement?")
@@ -67,16 +64,24 @@ if data.strip().lower() == "stairwell":
         inventory.append(items[1])
         print("While is the basement using your flashlight you find a mirror, how could this be helpful you think?\n"
               "")
+    # ----------------------------------------------------------------------------------------------------------------------
     if data.strip().lower() == "kitchen":
         print("Entering the kitchen you use your flashlight to look around,you find a" + str(
             items[3]) + " " + "this may be helpful:")
         inventory.append(items[3])
         print("You have found " + str(len(inventory)) + " out of 6 items !")
-        data = input("idk man plot is hard")
+        print("Standing in the kitchen too long, you feel the floor creek beneath you\n")
+        print("Catching your breath for too long you fall through the floor finding yourself in a trap room\n")
         visited.append(rooms[5])
+        visited.append(rooms[6])
+        print("In this room you find a net, seeing this you think you could use it to slow the " + villain)
+        data = input("Using your flashlight to find the door, you have to decide to (stay) and wait, or (continue) "
+                     "exploring, what will you do ?")
+        inventory.append(items[6])
+        if data == "continue":
+            print("you continue forward until you find a bedroom")
+
 # ----------------------------------------------------------------------------------------------------------------------
-
-
 
 
 # ----------------------------------------------------------------------------------------------------------------------
