@@ -44,7 +44,7 @@ if data.strip().lower() == "basement":
     print("You feel a presence fast approaching, the" + " " + villain + " " + "approaches too fast to react\n")
     print("Game Over," + " " + name + " " + "was never seen again!")
     visited.append(rooms[3])
-    # ----------------------------------------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------------------------------------
 if data.strip().lower() == "kitchen":
     print(line)
     print("Entering the kitchen you use your flashlight to look around,you find a" + str(
@@ -83,10 +83,11 @@ if data.strip().lower() == "stairwell":
         print("You have found " + str(len(inventory)) + " out of 6 items !")
         data = input("Using your flashlight to find the door, you have to decide to (stay) and wait, or (continue) "
                      "exploring, what will you do ?")
-# ----------------------------------------------------------------------------------------------------------------------
+    # ----------------------------------------------------------------------------------------------------------------------
     if data.strip().lower() == "continue":
         inventory.append(items[2])
         print(line)
+        visited.append(rooms[2])
         print("you continue forward until you find a bedroom\n")
         print("Entering the bedroom you use your flashlight to find clues\n")
         print("You find a set of keys on an antique spider web covered dresser\n")
@@ -102,13 +103,14 @@ if data.strip().lower() == "stairwell":
             print(line)
             if data.strip().lower() == "attack":
                 print(line)
+                visited.append(rooms[7])
                 print("You throw your net over the ghost and taking your camera unmask the ghost while snapping a "
                       "photo")
                 print("With all of the evidence you've found you make a break for the exit")
                 print("you safely escape out the door and use your evidence to apprehend the" + " " + villain)
                 print(line)
                 print("Game over," + " " + name + " " + "you've won!")
-    # ----------------------------------------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------------------------------------
     if data.strip().lower() == "stay":
         print(line)
         print(
@@ -117,12 +119,8 @@ if data.strip().lower() == "stairwell":
 # ----------------------------------------------------------------------------------------------------------------------
 if len(inventory) == len(items):
     print(line)
-    print("Having found all the evidence you escape back out the door you came in.\n")
-    print("You have escaped and won the game !\n")
-    print("Congratulations" + " " + name + "!")
+    print("Congratulations" + " " + name + " " + "you found all the items" + "!")
 # ----------------------------------------------------------------------------------------------------------------------
 if len(visited) == 8:
     print(line)
-    print("Having found all the evidence you escape back out the door you came in.\n")
-    print("You have escaped and won the game !\n")
-    print("Congratulations" + " " + name + "!")
+    print("Congratulations" + " " + name + " " + "you visited all eight rooms" + "!")
